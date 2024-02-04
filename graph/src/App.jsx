@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { CareerPathTreeChart } from "./Example";
 import ReactFlow, {
   MiniMap,
   Controls,
@@ -951,14 +952,29 @@ const initialEdges = [{id: '85-183',source: '85',target: '183'}
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
- 
+
+  /*
+  const [nodes, setNodes] = useState(initialNodes);
+  const [edges, setEdges] = useState(initialEdges);
+  const onNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    [setNodes]
+  );
+  const onEdgesChange = useCallback(
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    [setEdges]
+  );
+ */
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges],
   );
  
   return (
+    
     <div style={{ width: '100vw', height: '100vh' }}>
+      <CareerPathTreeChart /> 
+      {/*}
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -969,7 +985,7 @@ export default function App() {
         <Controls />
         <MiniMap zoomable pannable/>
         <Background variant="dots" gap={12} size={1} />
-      </ReactFlow>
+      </ReactFlow>*/}
     </div>
   );
 }

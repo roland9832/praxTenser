@@ -1,0 +1,64 @@
+  .custom-node {
+    background-color: #4a90e2;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  .hide-node {
+    background-color: #4a90e2;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  .top-node {
+    background-color: #557496;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    display: flex;
+  }
+  
+  .custom-node:hover {
+    background-color: #357cd6;
+  }
+  
+  .details-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 5px;
+    height: 80px;
+    width: 100px;
+    /*overflow-x: auto;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 100px; /* Adjust the max height as needed */
+  }
+  
+  .details-visible {
+    background-color: #2c3e50; /* Change background color when details are visible */
+  }
+
+  .text-updater-node {
+    height: 70px;
+    border: 1px solid #eee;
+    padding: 5px;
+    border-radius: 5px;
+    background: white;
+    overflow: auto;
+  }
+  
+  .text-updater-node label {
+    display: block;
+    color: #777;
+    font-size: 12px;
+  }
+  
+  

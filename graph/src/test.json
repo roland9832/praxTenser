@@ -1,0 +1,15 @@
+{
+    "initialNodes" : [
+        { "id": "1", "data": { "label": "one" }, "position":"", "type": "objectNode"},
+        { "id": "2", "data": { "label": "two" }, "position":"", "type": "objectNode" },
+        { "id": "5", "data": { "label": "five" }, "position":"", "type": "objectNode" },
+        { "id": "3", "data": { "label": "three" }, "position":"", "type": "objectNode" },
+        { "id": "4", "data": { "label": "four" }, "position":"", "type": "objectNode" }],
+
+    "initialEdges" : [
+        { "id": "1->2", "source": "1", "target": "2" },
+        { "id": "4->5", "source": "4", "target": "5" },
+        { "id": "5->3", "source": "5", "target": "3" },
+        { "id": "2->4", "source": "2", "target": "4" }
+    ]
+}
