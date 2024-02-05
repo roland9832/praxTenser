@@ -22,9 +22,11 @@ export default memo(({ data, isConnectable, isDraggable, onDetailClick, onHideCl
         isConnectable={isConnectable}
       />
       <div className={`custom-node ${showDetails ? 'details-visible' : ''}`}>
-        <div>{node.data.label}</div>
-        <button onClick={() => { toggleDetails(); onDetailClick(node.data.label) }}>I</button>
-        {showDetails && <div className="details-box">Additional information for {node.data.label} here...</div>}
+        <div>{node.id}</div>
+        <div>{node.data.kind}</div>
+        <div>{node.data.name}</div>
+        <button onClick={() => { toggleDetails(); onDetailClick(node.data.kind) }}>I</button>
+        {showDetails && <div className="details-box">DETAIL:{node.data.detail} </div>}
       </div>
       <div className="hide-node">
         <button onClick={() => { onHideClick(node, node) }}>H</button>
