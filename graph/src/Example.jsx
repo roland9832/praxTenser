@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import ReactFlow, {
     MiniMap,
     Controls,
@@ -11,7 +11,7 @@ import ReactFlow, {
 //npm i dagre
 //npm install dagre
 
-import jsonData from './graphD3_valid.json';
+import jsonData from './graphD3_valid_str.json';
 
 import dagre from "dagre";
 import "reactflow/dist/style.css";
@@ -87,7 +87,7 @@ export const CareerPathTreeChart = () => {
     initialNodes = jsonDataD.nodes;
     initialEdges = jsonDataD.links;
 
-    
+
 
     initialNodes = jsonDataD.nodes;
     initialEdges = jsonDataD.links;
@@ -109,8 +109,8 @@ export const CareerPathTreeChart = () => {
         { id: "4->5", source: "4", target: "5" },
         { id: "5->3", source: "5", target: "3" },
         /*{ id: "5->2", source: "5", target: "2" },*//*
-        { id: "2->4", source: "2", target: "4" },
-    ];*/
+{ id: "2->4", source: "2", target: "4" },
+];*/
 
     /*
     const initialNodes = [
@@ -129,9 +129,10 @@ export const CareerPathTreeChart = () => {
     */
 
 
-    
-        
 
+
+
+    const [selectedNodes, setSelectedNodes] = useState([]);
 
     const nodeTypes = {
         objectNode: (node) => <Node key={node.id} node={node} onDetailClick={onButtonClick} onHideClick={nodeClick} />
@@ -250,6 +251,8 @@ export const CareerPathTreeChart = () => {
         console.log("Button clicked for node:", label)
     };
 
+
+
     return (
         <div className="layoutflow" style={{ height: "100%" }}>
             <ReactFlow
@@ -268,9 +271,11 @@ export const CareerPathTreeChart = () => {
                 panOnScroll={true}
                 /*onNodeClick={nodeClick}*/
                 attributionPosition="bottom-right"
+
+            
             >
                 <Controls />
-                <MiniMap zoomable pannable/>
+                <MiniMap zoomable pannable />
                 <Background variant="dots" gap={12} size={1} />
             </ReactFlow>
         </div>
