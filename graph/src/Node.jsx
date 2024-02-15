@@ -1,6 +1,6 @@
 
 import './Node.css';
-import React, { memo, useState } from "react";
+import React, { memo, useState, useRef } from "react";
 import { Handle, Position } from 'reactflow';
 
 
@@ -8,37 +8,78 @@ import { Handle, Position } from 'reactflow';
 export default memo(({ data, isConnectable, isDraggable, onDetailClick, onHideClick, node }) => {
   const [showDetails, setShowDetails] = useState(false);
 
+
+  const contentRef = useRef(null);
+
+  const handleCopy = () => {
+    const textToCopy = contentRef.current.innerText;
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        alert('Content copied to clipboard!');
+      })
+      .catch((error) => {
+        console.error('Failed to copy: ', error);
+      });
+  };
+
+
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   };
+  /*
+    (function () {
+      var element = document.getElementById("json-text");
+      var obj = JSON.parse(element.innerText);
+      element.innerHTML = JSON.stringify(obj, undefined, 2);
+    })();
+  */
+
 
   return (
     <div className="top-node">
       <Handle
         type="target"
         position="left"
-        style={{ background: "yellow" }}
+        style={{ background: "black" }}
         onConnect={(params) => console.log("handle onConnect", params)}
         isConnectable={isConnectable}
       />
+
+
+
+
       <div className={`custom-node ${showDetails ? 'details-visible' : ''}`}>
         <div>{node.id}</div>
         <div>{node.data.kind}</div>
         <div>{node.data.name}</div>
-        <button onClick={() => { toggleDetails(); onDetailClick(node.data.kind) }}>I</button>
-        {showDetails && <div className="details-box">DETAIL:{node.data.detail} </div>}
+
+        <button className="info" onClick={() => { toggleDetails(); onDetailClick(node.data.kind) }}>i</button>
+        {showDetails && <div className="details-box"> 
+          <button className="copyButton" onClick={handleCopy}>Copy</button>
+          <div ref={contentRef}>
+            <div> LABELS: 
+              <ul>{node.data.labels.map((item, index) => (
+                <li key={index}>{item}</li>))}
+              </ul>
+             DETAILS: </div>{node.data.detail} </div>
+          </div>
+        }
+
       </div>
-      <div className="hide-node">
-        <button onClick={() => { onHideClick(node, node) }}>H</button>
-      </div>
+
+
+
+      <button className="hide" onClick={() => { onHideClick(node, node) }}>Hide</button>
+
+
       <Handle
         type="source"
         position="right"
         id="a"
-        style={{ background: "red" }}
+        style={{ background: "black" }}
         isConnectable={isConnectable}
       />
-      
+
     </div>
   );
 });

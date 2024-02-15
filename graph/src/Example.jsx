@@ -12,7 +12,7 @@ import ReactFlow, {
 //npm install dagre
 
 import jsonData from './graphD3_valid_str.json';
-
+import DownloadButton from "./DownloadButton";
 import dagre from "dagre";
 import "reactflow/dist/style.css";
 // import "./index.css";
@@ -251,6 +251,10 @@ export const CareerPathTreeChart = () => {
         console.log("Button clicked for node:", label)
     };
 
+    const miniMapOverlayStyle = {
+        backgroundColor: '#000000', // Set the background color for the MiniMap overlay
+        borderRadius: '8px', // Optionally add border radius for rounded corners
+    };
 
 
     return (
@@ -272,11 +276,17 @@ export const CareerPathTreeChart = () => {
                 /*onNodeClick={nodeClick}*/
                 attributionPosition="bottom-right"
 
-            
+
             >
+
                 <Controls />
-                <MiniMap zoomable pannable />
+                <MiniMap zoomable pannable
+                    nodeColor={(node) => 'black'} 
+                    nodeStrokeWidth={1}
+                    nodeBorderRadius={2} 
+                />
                 <Background variant="dots" gap={12} size={1} />
+                <DownloadButton />
             </ReactFlow>
         </div>
     );
