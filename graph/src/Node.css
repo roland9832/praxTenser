@@ -50,6 +50,7 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10px;
+    padding-right: 40px;
     margin-top: 5px;
     height: 80px;
     width: 250px;
@@ -63,15 +64,11 @@
 
   .details-box::-webkit-scrollbar {
     width: 12px;
-    /* Width of the scrollbar */
   }
 
-  /* Track */
   .details-box::-webkit-scrollbar-track {
     background: #f1f1f1;
-    /* Color of the track */
     border-radius: 10px;
-    /* Radius of the track */
   }
 
   /* Handle */
@@ -142,8 +139,18 @@
   }
 
   .copyButton {
-    
+
     border-radius: 10px;
     background-color: #051f3a;
     color: #ffffff;
+  }
+
+  .details {
+    width: 260px;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-break: break-all;
+    overflow-wrap: break-word;
+
   }

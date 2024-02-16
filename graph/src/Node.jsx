@@ -54,15 +54,16 @@ export default memo(({ data, isConnectable, isDraggable, onDetailClick, onHideCl
         <div>{node.data.name}</div>
 
         <button className="info" onClick={() => { toggleDetails(); onDetailClick(node.data.kind) }}>i</button>
-        {showDetails && <div className="details-box"> 
+        {showDetails && 
+        <div className="details-box"> 
           <button className="copyButton" onClick={handleCopy}>Copy</button>
-          <div ref={contentRef}>
-            <div> LABELS: 
+            <div ref={contentRef}> LABELS: 
               <ul>{node.data.labels.map((item, index) => (
                 <li key={index}>{item}</li>))}
               </ul>
-             DETAILS: </div>{node.data.detail} </div>
-          </div>
+             DETAILS: <div className="details">{node.data.detail} </div>
+            </div>
+        </div>
         }
 
       </div>
