@@ -26,14 +26,6 @@ export default memo(({ data, isConnectable, isDraggable, onDetailClick, onHideCl
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   };
-  /*
-    (function () {
-      var element = document.getElementById("json-text");
-      var obj = JSON.parse(element.innerText);
-      element.innerHTML = JSON.stringify(obj, undefined, 2);
-    })();
-  */
-
 
   return (
     <div className="top-node">
@@ -45,14 +37,10 @@ export default memo(({ data, isConnectable, isDraggable, onDetailClick, onHideCl
         isConnectable={isConnectable}
       />
 
-
-
-
       <div className={`custom-node ${showDetails ? 'details-visible' : ''}`}>
         <div>{node.id}</div>
         <div>{node.data.kind}</div>
         <div>{node.data.name}</div>
-
         <button className="info" onClick={() => { toggleDetails(); onDetailClick(node.data.kind) }}>i</button>
         {showDetails && 
         <div className="details-box"> 
@@ -65,13 +53,9 @@ export default memo(({ data, isConnectable, isDraggable, onDetailClick, onHideCl
             </div>
         </div>
         }
-
       </div>
 
-
-
       <button className="hide" onClick={() => { onHideClick(node, node) }}>Hide</button>
-
 
       <Handle
         type="source"

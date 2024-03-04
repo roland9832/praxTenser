@@ -36,13 +36,9 @@
     background-color: #051f3a;
     color: #ffffff;
     writing-mode: vertical-rl;
-    /* Vertical writing mode, right to left */
     transform: rotate(180deg);
-    /* Rotate the text to make it vertical */
     white-space: nowrap;
-    /* Prevent text wrapping */
     width: 3em;
-    /* Adjust the width to fit the vertical text */
   }
 
   .details-box {
@@ -54,12 +50,9 @@
     margin-top: 5px;
     height: 80px;
     width: 250px;
-    /*overflow-x: auto;*/
     overflow-y: scroll;
     overflow-x: hidden;
     max-height: 100px;
-    /* Adjust the max height as needed */
-
   }
 
   .details-box::-webkit-scrollbar {
@@ -71,12 +64,9 @@
     border-radius: 10px;
   }
 
-  /* Handle */
   .details-box::-webkit-scrollbar-thumb {
     background: #051f3a;
-    /* Color of the handle */
     border-radius: 10px;
-    /* Radius of the handle */
   }
 
 
